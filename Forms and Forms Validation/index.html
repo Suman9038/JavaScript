@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms and Forms Validation</title>
+    <style>
+        small{
+            color: red;
+            font-size: 12px;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input class="name" type="text" placeholder="Name">
+        <div class="hide">
+        <br>
+        <small>Your name should be less than 2 character</small>
+        </div>
+        <br><br>
+        <input type="email" placeholder="Email">
+        <br><br>
+        <input type="text" placeholder="Password">
+        <br><br>
+        <select >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Others</option>
+        </select>
+        <br><br>
+        <textarea placeholder="Tell use About you...."></textarea>
+        <br><br>
+        <input type="submit" >
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>

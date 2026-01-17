@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Note Card Stack</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- LEFT FLOATING CONTROLS -->
+    <div class="floating-controls">
+        <button class="fab" id="addNote">+</button>
+        <button class="fab" id="prevNote">↑</button>
+        <button class="fab" id="nextNote">↓</button>
+    </div>
+
+    <!-- MAIN STACK -->
+    <div class="stack-container">
+
+        <div class="card-stack"></div>
+    </div>
+
+    <!-- PRIORITY DOTS -->
+    <div class="priority">
+        <span class="dot black" data-category="Emergency"></span>
+        <span class="dot purple" data-category="Urgent"></span>
+        <span class="dot orange" data-category="Important"></span>
+        <span class="dot green" data-category="No Rush"></span>
+    </div>
+
+    </div>
+
+    <!-- FORM (HIDDEN BY DEFAULT) -->
+    <div class="modal" id="noteForm">
+        <form class="form-card">
+            <h2>New Call</h2>
+
+            <label>Image URL</label>
+            <input type="text" required placeholder="https://example.com/photo.jpg" />
+
+            <label>Full Name</label>
+            <input type="text" required placeholder="Enter full name" />
+
+            <label>Home Town</label>
+            <input type="text" required placeholder="Enter home town" />
+
+            <label>Purpose</label>
+            <input type="text" required placeholder="e.g. Quick appointment note" />
+
+            <div class="category">
+                <label class="pill red">
+                    <input type="radio" name="category" value="Emergency">
+                    Emergency
+                </label>
+
+                <label class="pill orange">
+                    <input type="radio" name="category" value="Important">
+                    Important
+                </label>
+
+                <label class="pill purple">
+                    <input type="radio" name="category" value="Urgent">
+                    Urgent
+                </label>
+
+                <label class="pill gray">
+                    <input type="radio" name="category" value="No Rush">
+                    No Rush
+                </label>
+            </div>
+            <button class="submit">Create Note</button>
+            <button class="close">Close</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

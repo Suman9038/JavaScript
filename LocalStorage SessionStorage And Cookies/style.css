@@ -1,0 +1,163 @@
+/* =========================
+   RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+/* =========================
+   LIGHT THEME
+========================= */
+:root[data-theme="light"] {
+    --bg-gradient: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    --text-color: #0f172a;
+
+    --card-bg: rgba(0, 0, 0, 0.05);
+    --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+    --toggle-bg: #999;
+    --toggle-active: #2563eb;
+
+    --btn-bg: linear-gradient(135deg, #2563eb, #38bdf8);
+    --btn-text: #ffffff;
+}
+
+/* =========================
+   DARK THEME (DEFAULT LOOK)
+========================= */
+:root,
+:root[data-theme="dark"] {
+    --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    --text-color: #ffffff;
+
+    --card-bg: rgba(255, 255, 255, 0.08);
+    --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+    --toggle-bg: #999;
+    --toggle-active: #4f9cff;
+
+    --btn-bg: linear-gradient(135deg, #4f9cff, #6dd5fa);
+    --btn-text: #000000;
+}
+
+/* =========================
+   BODY
+========================= */
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* =========================
+   CARD
+========================= */
+.theme-container {
+    width: 360px;
+    padding: 30px;
+    border-radius: 16px;
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theme-container h2 {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.theme-container p {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 25px;
+}
+
+/* =========================
+   TOGGLE
+========================= */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.label {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* =========================
+   SWITCH
+========================= */
+.switch {
+    position: relative;
+    width: 52px;
+    height: 26px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background: var(--toggle-bg);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    top: 3px;
+    background: #ffffff;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+input:checked + .slider {
+    background: var(--toggle-active);
+}
+
+input:checked + .slider::before {
+    transform: translateX(26px);
+}
+
+/* =========================
+   BUTTON
+========================= */
+.save-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(79, 156, 255, 0.4);
+}

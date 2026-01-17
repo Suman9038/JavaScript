@@ -1,0 +1,325 @@
+/* =========================
+   RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+/* =========================
+   BODY
+========================= */
+body {
+  height: 100vh;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* =========================
+   FLOATING CONTROLS
+========================= */
+.floating-controls {
+  position: absolute;
+  left: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 5;
+}
+
+.fab {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+}
+
+.fab:hover {
+  transform: scale(1.08);
+}
+
+/* =========================
+   STACK LAYOUT
+========================= */
+.stack-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* =========================
+   CARD STACK
+========================= */
+.card-stack {
+  position: relative;
+  width: 360px;
+  height: 220px;
+}
+
+/* =========================
+   NOTE CARD
+========================= */
+.note-card {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.card-1 {
+  z-index: 3;
+}
+
+.card-2 {
+  transform: translateY(12px) scale(0.96);
+  opacity: 0.75;
+  z-index: 2;
+}
+
+.card-3 {
+  transform: translateY(24px) scale(0.92);
+  opacity: 0.55;
+  z-index: 1;
+}
+
+/* =========================
+   CARD CONTENT
+========================= */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.profile img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+.profile h3 {
+  font-size: 18px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.dark-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.light-btn {
+  background: #f1f1f1;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* =========================
+   PRIORITY DOTS
+========================= */
+.priority {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.black { background: #000; }
+.purple { background: #a855f7; }
+.orange { background: #fb923c; }
+.green { background: #10b981; }
+
+/* =========================
+   MODAL OVERLAY
+========================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.modal.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* =========================
+   FORM CARD
+========================= */
+.form-card {
+  width: 380px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  transform: translateY(20px) scale(0.95);
+  opacity: 0;
+  transition: all 0.35s ease;
+}
+
+.modal.show .form-card {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.form-card h2 {
+  margin-bottom: 8px;
+}
+
+.form-card input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+/* =========================
+   CATEGORY PILLS
+========================= */
+.category {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  padding: 6px 12px;
+  border-radius: 14px;
+  font-size: 12px;
+  border: 1px solid;
+  cursor: pointer;
+}
+
+.red    { --pill: #ef4444; border-color: #ef4444; color: #ef4444; }
+.orange { --pill: #fb923c; border-color: #fb923c; color: #fb923c; }
+.purple { --pill: #a855f7; border-color: #a855f7; color: #a855f7; }
+.gray   { --pill: #0057ed; border-color: #0057ed; color: #0057ed; }
+
+.category input[type="radio"] {
+  display: none;
+}
+
+/* base pill */
+.category label.pill {
+  padding: 6px 12px;
+  border-radius: 14px;
+  font-size: 12px;
+  border: 1px solid;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+    background: transparent;
+}
+
+/* ⭐ checked pill */
+.category label.pill:has(input[type="radio"]:checked) {
+  background-color: var(--pill);
+  color: #fff;
+  border-color: var(--pill);
+}
+
+/* =========================
+   FORM BUTTONS
+========================= */
+.submit {
+  background: #000;
+  color: #fff;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.close {
+  background: #ff4d4d;
+  color: #fff;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .floating-controls {
+    left: 20px;
+  }
+
+  .card-stack {
+    width: 320px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .stack-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .priority {
+    flex-direction: row;
+  }
+
+  .floating-controls {
+    flex-direction: row;
+    left: 50%;
+    bottom: 30px;
+    top: auto;
+    transform: translateX(-50%);
+  }
+
+  .form-card {
+    width: 90%;
+  }
+}
